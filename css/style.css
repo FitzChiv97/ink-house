@@ -16,80 +16,41 @@
     font-display: swap;
 }
 
-div {
-    font-family: 'Raleway',sans-serif;
-    font-weight: 500;
+:root {
+    --font-main: 'Raleway', sans-serif;
+    --color-bg: #f4f6f5;
+    --color-bg-card: #e1ede6;
+    --color-white: #fff;
+    --color-gray: #86928b;
+    --color-dark: #2c2d35;
+    --color-green: #598d66;
+    --color-green-light: #d4e8d9;
+    --color-green-dark: #376b44;
+    --color-gold: #eedb6d;
+    --color-gold-light: #faeb97;
+    --color-gold-dark: #d9b949;
 }
 
- /*
- fonts:
+/*---------------BODY---------------*/
 
- font-family: "Raleway", sans-serif;
+html, body {
+    font-family: var(--font-main);
+    color: var(--color-dark);
+    background: var(--color-bg);
+}
 
- color: #2c2d35; - black
- color: #86928b; - gray
- color: #f4f6f5; - white
- color: #fff;    - plain-white 
- color: #598d66; - green
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
 
- font-weight: 500; - regular
- font-weight: 700; - logo
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
 
- font-size: 20px; - desktop header-menu
- font-size: 18px; - tablet/mobile header-menu
-
- font-size: 20px; - desktop/tablet/mobile logo
-
- font-size: 60px; - desktop title
- font-size: 40px; - tablet-690 title
- font-size: 36px; - tablet-510 title
- font-size: 30px; - mobile title 
-
- font-size: 18px; - desktop/tablet-690 body-content
- font-size: 16px; - tablet-510 body-content
- font-size: 14px; - mobile body-content
-
- font-size: 20px; - desktop/tablet-690 buttons-content
- font-size: 18px; - tablet-510/mobile buttons-content
-
- font-size: 40px; - desktop smaller-titles
- font-size: 30px; - tablet-690 smaller-titles
- font-size: 24px; - tablet-510/mobile smaller-titles
-
- font-size: 30px; - desktop/tablet-690 card names
- font-size: 24px; - tablet-510/mobile card names
-
- font-size: 24px; - desktop/tablet-690 card prices
- font-size: 20px; - tablet-510/mobile card prices
-
- font-size: 20px; - desktop/tablet-690/tablet-510 footer menu title
- font-size: 20px; - mobile footer menu title
- font-size: 16px; - mobile footer menu title
-
- font-size: 18px; - desktop/tablet-690 footer menu item
- font-size: 16px; - tablet-510/mobile footer menu item
-
- font-size: 12px; - desktop/tablet-690 copyright notice
-
- svgs:
-
- fill: #2c2d35; - black
- fill: #d4e8d9; - light-green
- fill: #598d66; - green
- fill: #376b44; - dark-green 
-
- buttons:
- 
- background: #d4e8d9; - light-green
- background: #598d66; - green
- border: 2px solid #598d66; - border-green
- background: #376b44; - dark-green 
-
- background: #faeb97; - light-yellow
- background: #eedb6d; - yellow
- border: 1px solid #a38314; - border-yellow  
- background: #d9b949; - dark-yellow
-
- cards-header-footer: -  background: #e1ede6; - bg-green
- body: - background: #f4f6f5;
- */
+main {
+    flex: 1 1 auto;
+}

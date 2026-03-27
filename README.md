@@ -6,12 +6,6 @@
 
  font-family: "Raleway", sans-serif;
 
- color: #2c2d35; - black
- color: #86928b; - gray
- color: #f4f6f5; - white
- color: #fff;    - plain-white 
- color: #598d66; - green
-
  font-weight: 500; - regular
  font-weight: 700; - logo
 
@@ -51,29 +45,35 @@
 
  font-size: 12px; - desktop/tablet-690 copyright notice
 
+ сolor: #2c2d35; - --color-dark
+ color: #86928b; - --color-gray
+ color: #f4f6f5; - --color-bg
+ color: #fff;    - --color-white 
+ color: #598d66; - --color-green
+
  svgs:
 
- fill: #2c2d35; - black
- fill: #d4e8d9; - light-green
- fill: #598d66; - green
- fill: #376b44; - dark-green 
+ fill: #2c2d35; - --color-dark
+ fill: #d4e8d9; - --color-green-light
+ fill: #598d66; - --color-green
+ fill: #376b44; - --color-green-dark 
 
  buttons:
  
- background: #d4e8d9; - light-green
- background: #598d66; - green
- border: 2px solid #598d66; - border-green
- background: #376b44; - dark-green 
+ background: #d4e8d9; - --color-green-light
+ background: #598d66; - --color-green
+ border: 2px solid #598d66; - border--color-green
+ background: #376b44; - --color-green-dark 
 
- background: #faeb97; - light-yellow
- background: #eedb6d; - yellow
+ background: #faeb97; - --color-gold-light
+ background: #eedb6d; - --color-gold
  border: 1px solid #a38314; - border-yellow  
- background: #d9b949; - dark-yellow
+ background: #d9b949; - --color-gold-old
 
  cards-header-footer: 
- background: #e1ede6; - bg-green
+ background: #e1ede6; - --color-bg-card
 
  body:
- background: #f4f6f5;
+ background: #f4f6f5; - --color-bg
  */
 ```
