@@ -19,7 +19,7 @@
 :root {
     --font-main: 'Raleway', sans-serif;
     --color-bg: #f4f6f5;
-    --color-bg-card: #e1ede6;
+    --color-bg-green: #e1ede6;
     --color-white: #fff;
     --color-gray: #86928b;
     --color-dark: #2c2d35;
@@ -33,7 +33,7 @@
 
 /*---------------BODY---------------*/
 
-html, body {
+body {
     font-family: var(--font-main);
     color: var(--color-dark);
     background: var(--color-bg);
@@ -54,3 +54,6 @@ html, body {
 main {
     flex: 1 1 auto;
 }
+
+/*---------------HEADER---------------*/
+
