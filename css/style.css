@@ -25,7 +25,7 @@
     --color-dark: #2c2d35;
     --color-green: #598d66;
     --color-green-light: #d4e8d9;
-    --color-green-dark: #376b44;
+    --color-green-dark: #376b44; 
     --color-gold: #eedb6d;
     --color-gold-light: #faeb97;
     --color-gold-dark: #d9b949;
@@ -104,11 +104,22 @@ main {
 }
 
 .menu__link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
     font-size: 20px;
+    border-radius: 5px;
+    transition: 
+    color 0.2s ease,
+    background 0.1s ease;
 }
 
-.menu__link--cart {
+.menu__link:hover {
+    color: var(--color-green);
 }
 
-.menu__cart-icon {
+.menu__link:active {
+    color: var(--color-green-dark);
+    background: var(--color-green-light);
 }
