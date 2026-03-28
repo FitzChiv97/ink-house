@@ -35,18 +35,20 @@
 
 body {
     font-family: var(--font-main);
+    font-size: 18px;     
+	font-weight: 500;    
     color: var(--color-dark);
     background: var(--color-bg);
 }
 
 .wrapper {
+    min-height: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
 }
 
 .container {
-    max-width: 1440px;
+    max-width: 1470px;
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -57,3 +59,56 @@ main {
 
 /*---------------HEADER---------------*/
 
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-bg-green);
+}
+
+.header__row {
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items:  center;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header__logo-icon {
+}
+
+.header__logo-text {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--color-green);
+}
+
+.header__menu {
+}
+
+.menu {
+}
+
+.menu__list {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.menu__item {
+}
+
+.menu__link {
+    font-size: 20px;
+}
+
+.menu__link--cart {
+}
+
+.menu__cart-icon {
+}

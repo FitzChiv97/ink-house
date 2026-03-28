@@ -9,9 +9,6 @@
 
 html,body {
 	height: 100%;
-	font-size: 18px;     /* for ink-house */
-	font-weight: 500;    /* for ink-house */
-	line-height: 1.5;    /* for ink-house */
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
