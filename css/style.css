@@ -516,9 +516,6 @@ main {
 
 /*---------------PRODUCTS---------------*/
 
-.products {
-}
-
 .products__selection {
     margin: 0 0 30px 0;
     display: flex;
@@ -584,7 +581,7 @@ main {
     }
 }
 
-@media(max-width: 550px) {
+@media(max-width: 500px) {
     .products__grid {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -614,6 +611,12 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+@media(max-width: 550px) {
+    .card__image {
+        object-position: center;
+    }
 }
 
 .card__author {
@@ -658,7 +661,7 @@ main {
 
 @media(max-width: 660px) {
     .card__price {
-        margin: 0 0 10px 0;
+        margin-bottom: 10px;
         font-size: 20px;
     }
 }
