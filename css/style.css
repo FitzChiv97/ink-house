@@ -686,3 +686,56 @@ main {
         font-size: 18px;
     }
 }
+
+/*---------------PROMO---------------*/
+
+.section--promo {
+    background:
+    url(../img/promo/noise.png) repeat,
+    /* linear-gradient(to right, 
+    rgba(0, 0, 0, 0.8) 10%, 
+    rgba(0, 0, 0, 0.4) 40%,
+    transparent 100%), */
+    url(../img/promo/promo-bg.jpg) center / cover no-repeat;
+}
+
+.promo {
+    max-width: 540px;
+    padding: 70px 0;
+}
+
+.promo__title {
+    margin: 0 0 20px 0;
+    font-size: 40px;
+    line-height: 100%;
+    color: var(--color-bg);
+}
+
+.promo__text {
+    margin: 0 0 20px 0;
+    line-height: 150%;
+    color: var(--color-white);
+}
+
+.promo__text:last-of-type {
+    margin: 0 0 60px 0;
+}
+
+.promo__button {
+    padding: 20px 60px;
+    font-size: 20px;
+    background: var(--color-gold);
+    border-radius: 2px;
+    transition: 
+    background 0.3s ease;
+}
+
+.promo__button:hover {
+    background: var(--color-gold-light);
+}
+
+.promo__button:active {
+    transition: none;
+    outline: 1px solid #a38314;
+    background: var(--color-gold-light);
+}
