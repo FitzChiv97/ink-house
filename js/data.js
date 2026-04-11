@@ -6,7 +6,7 @@ const products = [
         title: 'Охота Амура',
         features: 'Холст, масло (50х80)',
         price: '14 500',
-        image: 'img/products/france/amurs-hunt.jpg',
+        image: 'img/products/france/amurs-hunt.webp',
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const products = [
         title: 'Дама с собачкой',
         features: 'Акрил, бумага (50х80)',
         price: '16 500',
-        image: 'img/products/france/lady-with-the-dog.jpg',
+        image: 'img/products/france/lady-with-the-dog.webp',
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ const products = [
         title: 'Процедура',
         features: 'Цветная литография (40х60)',
         price: '20 000',
-        image: 'img/products/france/procedure.jpg',
+        image: 'img/products/france/procedure.webp',
     },
     {
         id: 4,
@@ -33,7 +33,7 @@ const products = [
         title: 'Роза',
         features: 'Бумага, акрил (50х80)',
         price: '12 000',
-        image: 'img/products/france/rose.jpg',
+        image: 'img/products/france/rose.webp',
     },
     {
         id: 5,
@@ -42,7 +42,7 @@ const products = [
         title: 'Птичья трапеза',
         features: 'Цветная литография (40х60)',
         price: '22 500',
-        image: 'img/products/france/birds-meal.jpg',
+        image: 'img/products/france/birds-meal.webp',
     },
     {
         id: 6,
@@ -51,7 +51,7 @@ const products = [
         title: 'Пейзаж с рыбой',
         features: 'Цветная литография (40х60)',
         price: '20 000',
-        image: 'img/products/france/landscape-with-fish.jpg',
+        image: 'img/products/france/landscape-with-fish.webp',
     },
     {
         id: 7,
@@ -60,7 +60,7 @@ const products = [
         title: 'Над городом',
         features: 'Цветная литография (40х60)',
         price: '16 000',
-        image: 'img/products/germany/above-the-city.jpg',
+        image: 'img/products/germany/above-the-city.webp',
     },
     {
         id: 8,
@@ -69,7 +69,7 @@ const products = [
         title: 'Птенцы',
         features: 'Холст, масло (50х80)',
         price: '14 500',
-        image: 'img/products/germany/younglings.jpg',
+        image: 'img/products/germany/younglings.webp',
     },
     {
         id: 9,
@@ -78,7 +78,7 @@ const products = [
         title: 'Среди листьев',
         features: 'Цветная литография (40х60) ',
         price: '20 000',
-        image: 'img/products/germany/among-the-leaves.jpg',
+        image: 'img/products/germany/among-the-leaves.webp',
     },
     {
         id: 10,
@@ -87,7 +87,7 @@ const products = [
         title: 'Яркая птица',
         features: 'Цветная литография (40х60)',
         price: '13 000',
-        image: 'img/products/germany/bright-bird.jpg',
+        image: 'img/products/germany/bright-bird.webp',
     },
     {
         id: 11,
@@ -96,7 +96,7 @@ const products = [
         title: 'Дятлы',
         features: 'Бумага, акрил (50х80)',
         price: '20 000',
-        image: 'img/products/germany/woodpeckers.jpg',
+        image: 'img/products/germany/woodpeckers.webp',
     },
     {
         id: 12,
@@ -105,7 +105,7 @@ const products = [
         title: 'Большие воды',
         features: 'Бумага, акрил (50х80)',
         price: '23 000',
-        image: 'img/products/germany/big-waters.jpg',
+        image: 'img/products/germany/big-waters.webp',
     },
     {
         id: 13,
@@ -114,7 +114,7 @@ const products = [
         title: 'Дикий зверь',
         features: 'Акварель, бумага (50х80)',
         price: '19 500',
-        image: 'img/products/england/wild-animal.jpg',
+        image: 'img/products/england/wild-animal.webp',
     },
     {
         id: 14,
@@ -123,7 +123,7 @@ const products = [
         title: 'Скалистый берег',
         features: 'Цветная литография (40х60)',
         price: '17 500',
-        image: 'img/products/england/rocky-shore.jpg',
+        image: 'img/products/england/rocky-shore.webp',
     },
     {
         id: 15,
@@ -132,7 +132,7 @@ const products = [
         title: 'Река и горы',
         features: 'Акварель, бумага (50х80)',
         price: '20 500 руб',
-        image: 'img/products/england/river-and-mountains.jpg',
+        image: 'img/products/england/river-and-mountains.webp',
     },
     {
         id: 16,
@@ -141,7 +141,7 @@ const products = [
         title: 'Белый попугай',
         features: 'Цветная литография (40х60)',
         price: '15 500',
-        image: 'img/products/england/white-parrot.jpg',
+        image: 'img/products/england/white-parrot.webp',
     },
     {
         id: 17,
@@ -150,7 +150,7 @@ const products = [
         title: 'Ночная рыба',
         features: 'Бумага, акрил (50х80)',
         price: '12 500',
-        image: 'img/products/england/night-fish.jpg',
+        image: 'img/products/england/night-fish.webp',
     },
     {
         id: 18,
@@ -159,6 +159,6 @@ const products = [
         title: 'Рыжий кот',
         features: 'Цветная литография (40х60)',
         price: '21 000',
-        image: 'img/products/england/ginger-cat.jpg',
+        image: 'img/products/england/ginger-cat.webp',
     }
 ];
