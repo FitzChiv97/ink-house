@@ -699,9 +699,41 @@ main {
     url(../img/promo/promo-desktop-bg.webp) center / cover no-repeat;
 }
 
+@media(max-width: 1024px) {
+    .section--promo {
+        background:
+        url(../img/promo/noise.png) repeat,
+        linear-gradient(to right, 
+        rgba(0, 0, 0, 0.8) 20%, 
+        rgba(0, 0, 0, 0.4) 70%,
+        transparent 80%),
+        url(../img/promo/promo-desktop-bg.webp) center / cover no-repeat;
+    }
+}
+
+@media(max-width: 768px) {
+    .section--promo {
+        background:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        url(../img/promo/promo-mobile-bg.webp) center / cover no-repeat;
+    }
+}
+
+@media(max-width: 500px) {
+    .section--promo {
+        background-position: 70% center;
+    }
+}
+
 .promo {
     max-width: 540px;
     padding: 70px 0;
+}
+
+@media(max-width: 768px) {
+    .promo {
+        max-width: 100%;
+    }
 }
 
 .promo__title {
@@ -711,10 +743,55 @@ main {
     margin: 0 0 20px 0;   
 }
 
+@media(max-width: 768px) {
+    .promo__title {
+        margin: 0 0 30px 0;   
+    }
+}
+
+@media(max-width: 600px) {
+    .promo__title {
+        margin: 0 0 20px 0;   
+    }
+}
+
+@media(max-width: 500px) {
+    .promo__title {
+        gap: 10px;   
+    }
+}
+
+@media(max-width: 768px) {
+    .promo__title-logo {
+        width: 60px;   
+    }
+}
+
+@media(max-width: 600px) {
+    .promo__title-logo {
+        width: 50px;   
+    }
+}
+
+
 .promo__title-text {
     font-size: 40px;
     line-height: 100%;
     color: var(--color-bg);
+}
+
+@media(max-width: 768px) {
+    .promo__title-text {
+        max-width: 370px;
+        font-size: 30px;   
+    }
+}
+
+@media(max-width: 600px) {
+    .promo__title-text {
+        max-width: 260px;
+        font-size: 24px;   
+    }
 }
 
 .promo__text {
@@ -725,6 +802,29 @@ main {
 
 .promo__text:last-of-type {
     margin: 0 0 60px 0;
+}
+
+@media(max-width: 768px) {
+    .promo__text,
+    .promo__text:last-of-type {
+        margin: 0 0 30px 0;
+    }
+}
+
+@media(max-width: 600px) {
+    .promo__text,
+    .promo__text:last-of-type {
+        margin: 0 0 20px 0;
+        font-size: 16px;
+        line-height: 140%;
+    }
+}
+
+@media(max-width: 500px) {
+    .promo__text,
+    .promo__text:last-of-type {
+        margin: 0 0 30px 0;
+    }
 }
 
 .promo__button {
@@ -745,4 +845,23 @@ main {
     transition: none;
     outline: 1px solid #a38314;
     background: var(--color-gold-light);
+}
+
+@media(max-width: 768px) {
+    .promo__button {
+        padding: 18px 36px;
+    }
+}
+
+@media(max-width: 600px) {
+    .promo__button {
+        padding: 15px 33px;
+        font-size: 18px;
+    }
+}
+
+@media(max-width: 500px) {
+    .promo__button {
+        width: 100%;
+    }
 }
