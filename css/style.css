@@ -865,3 +865,71 @@ main {
         width: 100%;
     }
 }
+
+/*---------------ABOUT-US---------------*/
+
+.about-us {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 80px 0 0 0;
+}
+
+.about-us__image-block {
+    position: relative;
+    flex: 0 1 40%;
+}
+
+.about-us__image-block::after {
+    content: '';
+    position: absolute;
+    left: 11%;
+    bottom: 12%;
+    z-index: 2;
+    width: 110%;
+    height: 110%;
+    background: url(../img/about-us/hand.png) no-repeat;
+    background-size: contain;
+    pointer-events: none;
+}
+
+.about-us__image {
+    width: 100%;
+}
+
+.about-us__content {
+    flex: 0 1 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-us__title {
+    font-size: 40px;
+    line-height: 150%;
+}
+
+.about-us__text {
+    line-height: 150%;
+}
+
+.about-us__staff {
+    display: flex;
+    gap: 30px;
+}
+
+.about-us__employee {
+    display: block;
+}
+
+.about-us__employee:hover .about-us__employee-image{
+    transform: scale(1.1);
+}
+
+.about-us__employee:focus {
+    outline-offset: 4px;
+}   
+
+.about-us__employee-image {
+    transition: transform 0.2s ease;
+}
