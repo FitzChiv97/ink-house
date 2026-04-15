@@ -875,9 +875,30 @@ main {
     padding: 80px 0 0 0;
 }
 
+@media(max-width: 1024px) {
+    .about-us {
+        padding: 40px 0 0 0;
+    }
+}
+
+@media(max-width: 768px) {
+    .about-us {
+        flex-direction: column;
+        padding: 50px 0 0 0;
+    }
+}
+
 .about-us__image-block {
     position: relative;
     flex: 0 1 40%;
+}
+
+@media(max-width: 768px) {
+    .about-us__image-block {
+        flex: 0 1 auto;
+        width: 70%;
+        margin: 0 auto;
+    }
 }
 
 .about-us__image-block::after {
@@ -886,15 +907,11 @@ main {
     left: 11%;
     bottom: 12%;
     z-index: 2;
-    width: 110%;
+    width: 65%;
     height: 110%;
     background: url(../img/about-us/hand.png) no-repeat;
     background-size: contain;
     pointer-events: none;
-}
-
-.about-us__image {
-    width: 100%;
 }
 
 .about-us__content {
@@ -904,13 +921,46 @@ main {
     gap: 20px;
 }
 
+@media(max-width: 768px) {
+    .about-us__content  {
+        flex: 0 1 100%;
+        gap: 30px;
+    }
+}
+
+@media(max-width: 600px) {
+    .about-us__content  {
+        gap: 20px;
+    }
+}
+
 .about-us__title {
     font-size: 40px;
     line-height: 150%;
 }
 
+@media(max-width: 768px) {
+    .about-us__title {
+        font-size: 30px;
+        line-height: 110%;
+    }
+}
+
+@media(max-width: 600px) {
+    .about-us__title {
+        font-size: 24px;
+    }
+}
+
 .about-us__text {
     line-height: 150%;
+}
+
+@media(max-width: 600px) {
+    .about-us__text {
+        font-size: 16px;
+        line-height: 150%;
+    }
 }
 
 .about-us__staff {
