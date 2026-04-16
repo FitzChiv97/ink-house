@@ -986,3 +986,133 @@ main {
 
 /*---------------FOOTER---------------*/
 
+.footer {
+    padding: 23px 0;
+    background: var(--color-bg-green);
+}
+
+@media(max-width: 600px) {
+    .footer {
+        padding: 20px 0;
+    }
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto 60px auto 60px auto 2fr auto;
+    grid-template-areas: 
+        'logo  . rep . new . about . media'
+        'phone . rep . new . about . media';
+    column-gap: 0px;
+    row-gap: 35px;
+}
+
+.footer__logo {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer__logo-text {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--color-green);
+}
+
+.footer__phone {
+    grid-area: phone;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer__phone-number {
+    font-size: 20px;
+}
+
+.footer__phone-text {
+    color: var(--color-gray);
+}
+
+@media(max-width: 600px) {
+    .footer__phone-text {
+        font-size: 16px; 
+    }
+}
+
+.footer__info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer__info:nth-of-type(1) {
+    grid-area: rep;
+}
+
+.footer__info:nth-of-type(2) {
+    grid-area: new;
+}
+
+.footer__info:nth-of-type(3) {
+    grid-area: about;
+}
+
+.footer__title {
+    font-size: 20px;
+}
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer__link {
+    line-height: 150%;
+    color: var(--color-gray);
+}
+
+@media(max-width: 600px) {
+    .footer__link {
+        font-size: 16px;
+    }
+}
+
+.footer__media {
+    grid-area: media;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer__icons-block {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer__icon-link {
+    padding: 3px;
+}
+
+.footer__copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+} 
+
+@media(max-width: 600px) {
+    .footer__copyright {
+        flex-direction: row;
+        align-items: baseline;
+    } 
+}
+
+.footer__copyright-text {
+    font-size: 12px;
+    line-height: 120%;
+    color: var(--color-gray);
+}
