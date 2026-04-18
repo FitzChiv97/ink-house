@@ -1057,25 +1057,56 @@ main {
     grid-area: phone;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    align-items: flex-start;
+    margin: 0 0 0 -7px;
 }
 
 @media(max-width: 768px) {
     .footer__phone {
+        align-items: flex-end;
         justify-self: end;
-        text-align: right;
     }
 }
 
 @media(max-width: 500px) {
     .footer__phone {
+        align-items: flex-start;
         justify-self: start;
-        text-align: left;
     }
 }
 
 .footer__phone-number {
+    position: relative;
+    display: inline-block;
+    padding: 5px 7px;
     font-size: 20px;
+    transition: 
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.footer__phone-number:hover {
+    color: var(--color-green);
+}
+
+.footer__phone-number:active {
+    background: var(--color-green-light);
+}
+
+.footer__phone-number::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 7px;
+    right: 7px;
+    height: 1px;
+    background: var(--color-green);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.footer__phone-number:hover::after {
+    opacity: 1;
 }
 
 @media(max-width: 768px) {
@@ -1091,7 +1122,37 @@ main {
 }
 
 .footer__phone-text {
+    position: relative;
+    display: inline-block;
+    padding: 5px 7px;
     color: var(--color-gray);
+    transition: 
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.footer__phone-text:hover {
+    color: var(--color-green);
+}
+
+.footer__phone-text:active {
+    background: var(--color-green-light);
+}
+
+.footer__phone-text::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 7px;
+    right: 7px;
+    height: 1px;
+    background: var(--color-green);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.footer__phone-text:hover::after {
+    opacity: 1;
 }
 
 @media(max-width: 600px) {
@@ -1150,11 +1211,43 @@ main {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    margin: 0 0 0 -7px;
 }
 
 .footer__link {
+    position: relative;
+    padding: 5px 7px;
+    border-radius: 5px;
     line-height: 150%;
     color: var(--color-gray);
+    transition: 
+    color 0.5s ease,
+    background 0.2s ease;
+}
+
+.footer__link:hover {
+    color: var(--color-green);
+}
+
+.footer__link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 7px;
+    right: 7px;
+    height: 1px;
+    background: var(--color-green);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.footer__link:hover::after {
+    opacity: 1;
+}
+
+.footer__link:active {
+    color: var(--color-green-dark);
+    background: var(--color-green-light);
 }
 
 @media(max-width: 600px) {
