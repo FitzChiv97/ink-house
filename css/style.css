@@ -1045,12 +1045,31 @@ main {
     display: flex;
     align-items: center;
     gap: 8px;
+    color: var(--color-green);
+    transition:
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.footer__logo:hover {
+    color: var(--color-gold-dark);
+}
+
+.footer__logo:active {
+    transform: translateY(3px);
+}
+
+.footer__logo-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
 }
 
 .footer__logo-text {
     font-weight: 700;
     font-size: 20px;
-    color: var(--color-green);
+    color: inherit;
 }
 
 .footer__phone {
@@ -1300,7 +1319,22 @@ main {
 }
 
 .footer__icon-link {
-    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    transition: 
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.footer__icon-link:hover {
+    color: var(--color-green);    
+}
+
+.footer__icon-link:active {
+    transform: translateY(3px); 
 }
 
 .footer__copyright {
