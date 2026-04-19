@@ -138,6 +138,7 @@ main {
     top: 0;
     z-index: 100;
     background: var(--color-bg-green);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .header__row {
@@ -164,6 +165,18 @@ main {
     display: flex;
     align-items: center;
     gap: 8px;
+    color: var(--color-green);
+    transition: 
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.header__logo:hover {
+    color: var(--color-gold-dark);
+}
+
+.header__logo:active {
+    transform: translateY(3px);
 }
 
 @media (max-width: 768px) {
@@ -201,10 +214,17 @@ main {
     }
 }
 
+.header__logo-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+}
+
 .header__logo-text {
     font-weight: 700;
     font-size: 20px;
-    color: var(--color-green);
+    color: inherit;
 }
 
 .menu__burger-icon {
@@ -772,7 +792,6 @@ main {
         width: 50px;   
     }
 }
-
 
 .promo__title-text {
     font-size: 40px;
