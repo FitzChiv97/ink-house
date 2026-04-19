@@ -998,16 +998,20 @@ main {
     display: block;
 }
 
-.about-us__employee:hover .about-us__employee-image{
-    transform: scale(1.1);
-}
-
 .about-us__employee:focus {
     outline-offset: 4px;
-}   
+}
 
 .about-us__employee-image {
     transition: transform 0.2s ease;
+}
+
+.about-us__employee:hover .about-us__employee-image {
+    transform: scale(1.1);
+}
+
+.about-us__employee:active .about-us__employee-image {
+    transform: scale(1.1) translateY(3px);
 }
 
 /*---------------FOOTER---------------*/
