@@ -4,16 +4,14 @@ const burgerButton = document.querySelector('.js-burger-button');
 const logo = document.querySelector('.js-logo');
 const menu = document.querySelector('.js-menu');
 const navLinks = document.querySelectorAll('.js-menu-link');
-const tabsContainer = document.querySelector('.js-products-tabs');
-const tabsButtons = tabsContainer.querySelectorAll('.js-products-button');
+const tabsButtons = document.querySelectorAll('.js-products-button');
 const productsGrid = document.querySelector('.js-products-grid');
-
 const initialProducts = products.filter(product => product.country === 'Франция');
 
 burgerButton.addEventListener('click', toggleMenu);
 logo.addEventListener('click', checkActiveMenu);
 navLinks.forEach(link => link.addEventListener('click', checkActiveMenu));
-tabsContainer.addEventListener('click', switchCountry);
+tabsButtons.forEach(btn => btn.addEventListener('click', switchCountry));
 
 renderProducts(initialProducts); // initial call to avoid empty products section
 
@@ -32,8 +30,6 @@ function checkActiveMenu() {
 }
 
 function switchCountry(e) {
-    if(!e.target.classList.contains('js-products-button')) return; // handle clicks on empty space
- 
     tabsButtons.forEach(btn => btn.classList.remove('_active'));
     e.target.classList.add('_active'); 
 
