@@ -11,7 +11,7 @@
         <header class="header">
             <div class="header__container container">
                 <div class="header__row">
-                    <a href="#" class="header__logo">
+                    <a href="#" class="header__logo js-logo">
                         <div class="header__logo-icon">
                             <svg width="35" height="35" viewBox="0 0 35 35" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M17.3219 0L19.7871 9.10444L26.7831 2.77806L23.9347 11.77L33.2405 10.2302L25.9828 16.2547L34.6438 19.9905L25.2812 21.1349L30.5475 28.9601L22.0525 24.861L22.2522 34.2911L17.3219 26.25L12.3916 34.2911L12.5913 24.861L4.09628 28.9601L9.36262 21.1349L2.47955e-05 19.9905L8.66096 16.2547L1.40334 10.2302L10.7091 11.77L7.86069 2.77806L14.8567 9.10444L17.3219 0Z" fill="currentColor"/>
@@ -19,21 +19,21 @@
                         </div>
                         <span class="header__logo-text">Ink. House</span>
                     </a>
-                    <nav class="header__menu menu">
+                    <nav class="header__menu menu js-menu">
                         <button type="button" class="menu__burger-icon js-burger-button">
                             <span class="menu__burger-line"></span>
                             <span class="menu__burger-line"></span>
                             <span class="menu__burger-line"></span>
                         </button>
                         <ul class="menu__list">
-                            <li class="menu__item">
-                                <a href="#" class="menu__link">Репродукции</a>
+                            <li class="menu__item js-menu-link">
+                                <a href="#products" class="menu__link">Репродукции</a>
                             </li>
-                            <li class="menu__item">
-                                <a href="#" class="menu__link">Новинки</a>
+                            <li class="menu__item js-menu-link">
+                                <a href="#promo" class="menu__link">Новинки</a>
                             </li>
-                            <li class="menu__item">
-                                <a href="#" class="menu__link">О нас</a>
+                            <li class="menu__item js-menu-link">
+                                <a href="#about" class="menu__link">О нас</a>
                             </li>
                         </ul>
                     </nav>
@@ -57,7 +57,7 @@
             </div>
         </header>
         <main class="main">
-            <section class="section">
+            <section class="section" id="hero">
                 <div class="container">
                     <div class="hero">
                         <div class="hero__image-block">
@@ -68,12 +68,12 @@
                             <p class="hero__text">
                                 Высокое качество отрисовки на плотной бумаге или льняном холсте. Редкие произведения, доступные цены.
                             </p>
-                            <button class="hero__button btn">Продукция</button>
+                            <a href="#products"class="hero__button btn">Продукция</a>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="section">
+            <section class="section" id="products">
                 <div class="container">
                     <div class="products">
                         <div class="products__selection">
@@ -89,7 +89,7 @@
                     </div>
                 </div>
             </section>
-            <section class="section section--promo">
+            <section class="section section--promo" id="promo">
                 <div class="container">
                     <div class="promo">
                         <div class="promo__title">
@@ -102,11 +102,11 @@
                         <p class="promo__text">
                             Использование современных технологий цветопередачи позволяет нам сохранять оригинальную палитру и фактуру мазков, превращая каждую копию в полноценный предмет искусства для вашего интерьера.
                         </p>
-                        <button type="button" class="promo__button">Ознакомиться</button>
+                        <a href="#products" class="promo__button">Ознакомиться</a>
                     </div>
                 </div>
             </section>
-            <section class="section">
+            <section class="section" id="about">
                 <div class="container">
                     <div class="about-us">
                         <div class="about-us__image-block">
@@ -118,13 +118,13 @@
                                 Мы объединили талантливых художников, опытных кураторов и мастеров печатного дела, чтобы лучшие шедевры мировой живописи стали доступнее. Мы верим, что искусство должно окружать человека повсюду, вдохновляя на новые идеи и создавая уют в каждом доме. Наша миссия — сохранить дух оригинала в каждой детали.
                             </p>
                             <div class="about-us__staff">
-                                <a href="#" class="about-us__employee">
+                                <a href="#about" class="about-us__employee">
                                     <img src="img/about-us/staff-member-1.png" alt="photographer" class="about-us__employee-image">
                                 </a>
-                                <a href="#" class="about-us__employee">
+                                <a href="#about" class="about-us__employee">
                                     <img src="img/about-us/staff-member-2.png" alt="designer" class="about-us__employee-image">
                                 </a>
-                                <a href="#" class="about-us__employee">
+                                <a href="#about" class="about-us__employee">
                                     <img src="img/about-us/staff-member-3.png" alt="manager" class="about-us__employee-image">
                                 </a>
                             </div>
@@ -136,7 +136,7 @@
         <footer class="footer">
             <div class="container"> 
                 <div class="footer__grid">
-                    <a href="index.html" class="footer__logo">
+                    <a href="#" class="footer__logo">
                         <div class="footer__logo-icon">
                             <svg width="35" height="35" viewBox="0 0 35 35" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M17.3219 0L19.7871 9.10444L26.7831 2.77806L23.9347 11.77L33.2405 10.2302L25.9828 16.2547L34.6438 19.9905L25.2812 21.1349L30.5475 28.9601L22.0525 24.861L22.2522 34.2911L17.3219 26.25L12.3916 34.2911L12.5913 24.861L4.09628 28.9601L9.36262 21.1349L2.47955e-05 19.9905L8.66096 16.2547L1.40334 10.2302L10.7091 11.77L7.86069 2.77806L14.8567 9.10444L17.3219 0Z" fill="currentColor"/>
@@ -166,10 +166,10 @@
                         <h3 class="footer__title">Новинки</h3>
                         <ul class="footer__list">
                             <li class="footer__item">
-                                <a href="#" class="footer__link">2021</a>
+                                <a href="#promo" class="footer__link">2021</a>
                             </li>
                             <li class="footer__item">
-                                <a href="#" class="footer__link">2020</a>
+                                <a href="#promo" class="footer__link">2020</a>
                             </li>
                         </ul>
                     </div>
@@ -177,10 +177,10 @@
                         <h3 class="footer__title">О нас</h3>
                         <ul class="footer__list">
                             <li class="footer__item">
-                                <a href="#" class="footer__link">Художники</a>
+                                <a href="#about" class="footer__link">Художники</a>
                             </li>
                             <li class="footer__item">
-                                <a href="#" class="footer__link">Менеджеры</a>
+                                <a href="#about" class="footer__link">Менеджеры</a>
                             </li>
                         </ul>
                     </div>

@@ -1,20 +1,34 @@
 'use strict';
 
 const burgerButton = document.querySelector('.js-burger-button');
+const logo = document.querySelector('.js-logo');
+const menu = document.querySelector('.js-menu');
+const navLinks = document.querySelectorAll('.js-menu-link');
 const tabsContainer = document.querySelector('.js-products-tabs');
 const tabsButtons = tabsContainer.querySelectorAll('.js-products-button');
 const productsGrid = document.querySelector('.js-products-grid');
 
 const initialProducts = products.filter(product => product.country === 'Франция');
 
-burgerButton.addEventListener('click', toggleBurgerMenu);
+burgerButton.addEventListener('click', toggleMenu);
+logo.addEventListener('click', checkActiveMenu);
+navLinks.forEach(link => link.addEventListener('click', checkActiveMenu));
 tabsContainer.addEventListener('click', switchCountry);
 
 renderProducts(initialProducts); // initial call to avoid empty products section
 
-function toggleBurgerMenu() {
-    burgerButton.closest('.menu').classList.toggle('_active');
+function toggleMenu() {
+    menu.classList.toggle('_active');
     document.body.classList.toggle('_lock');
+}
+
+function closeMenu() {
+    menu.classList.remove('_active');
+    document.body.classList.remove('_lock');
+}
+
+function checkActiveMenu() {
+    if(menu.classList.contains('_active')) closeMenu();
 }
 
 function switchCountry(e) {
