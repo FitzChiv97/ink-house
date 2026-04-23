@@ -3,15 +3,18 @@
 const burgerButton = document.querySelector('.js-burger-button');
 const logo = document.querySelector('.js-logo');
 const menu = document.querySelector('.js-menu');
-const navLinks = document.querySelectorAll('.js-menu-link');
+const headerLinks = document.querySelectorAll('.js-menu-link');
 const tabsButtons = document.querySelectorAll('.js-products-button');
 const productsGrid = document.querySelector('.js-products-grid');
+const countryLinks = document.querySelectorAll('.js-country-link');
+
 const initialProducts = products.filter(product => product.country === 'Франция');
 
 burgerButton.addEventListener('click', toggleMenu);
 logo.addEventListener('click', checkActiveMenu);
-navLinks.forEach(link => link.addEventListener('click', checkActiveMenu));
+headerLinks.forEach(link => link.addEventListener('click', checkActiveMenu));
 tabsButtons.forEach(btn => btn.addEventListener('click', switchCountry));
+countryLinks.forEach(link => link.addEventListener('click', switchCountry));
 
 renderProducts(initialProducts); // initial call to avoid empty products section
 
@@ -30,11 +33,15 @@ function checkActiveMenu() {
 }
 
 function switchCountry(e) {
-    tabsButtons.forEach(btn => btn.classList.remove('_active'));
-    e.target.classList.add('_active'); 
+    const selectedCountry = e.target.dataset.country;
 
-    const country = e.target.dataset.country; // render products by selected country
-    const filteredProducts = products.filter(product => product.country === country);
+    // make selected country tab-button active
+    tabsButtons.forEach(btn => btn.classList.remove('_active'));
+    const activeButton = [...tabsButtons].find(btn => btn.dataset.country === selectedCountry);
+    activeButton.classList.add('_active');
+
+    // render products by selected country
+    const filteredProducts = products.filter(product => product.country === selectedCountry);
 
     renderProducts(filteredProducts);
 }
