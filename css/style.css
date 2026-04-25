@@ -391,7 +391,8 @@ main {
     }
 }
 
-.cart__link {
+.cart__button {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -402,13 +403,34 @@ main {
     background 0.1s ease;
 }
 
-.cart__link:hover {
+.cart__button:hover {
     color: var(--color-green);
 }
 
-.cart__link:active {
+.cart__button:active {
     color: var(--color-green-dark);
     background: var(--color-green-light);
+}
+
+.cart__products {
+    display: none;
+    position: absolute;
+    top: 7px;
+    left: 12px;
+    width: 13px;
+    height: 13px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-white);
+    background: var(--color-green);
+}
+
+.cart__products._active {
+    display: flex;
 }
 
 /*---------------HERO---------------*/
