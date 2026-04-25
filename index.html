@@ -211,17 +211,25 @@
                 </div>
             </div>
         </footer>
-        <div class="cart-overlay">
+        <div class="cart-overlay"> /*_active*/
             <aside class="cart-drawer">
-                <button class="cart-drawer__close">
+                <button type="button" class="cart-drawer__close">
                     <span class="cart-drawer__close-line"></span>
                     <span class="cart-drawer__close-line"></span>
                 </button>
-                <h2 class="cart-drawer__title">Ваша корзина</h2>
-                <ul class="cart-drawer__list"></ul>
+                <div class="cart-drawer__title-container">
+                    <h2 class="cart-drawer__title">Ваша корзина</h2>
+                </div>
+                <ul class="cart-drawer__list">
+                    <li class="cart-drawer__item">Дама с собачкой</li>
+                    <li class="cart-drawer__item">Над городом</li>
+                </ul>
                 <div class="cart-drawer__order">
-                    <span class="cart-drawer__order-total"></span>
-                    <button class="cart-drawer__order-btn">Купить</button>
+                    <div class="cart-drawer__row">
+                        <p class="cart-drawer__order-text">Всего:</p>
+                        <span class="cart-drawer__order-total">0 руб</span>
+                    </div>
+                    <button type="button" class="cart-drawer__order-btn btn">Купить</button>
                 </div>
             </aside>
         </div>
