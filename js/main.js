@@ -4,6 +4,10 @@ const burgerButton = document.querySelector('.js-burger-button');
 const logo = document.querySelector('.js-logo');
 const menu = document.querySelector('.js-menu');
 const headerLinks = document.querySelectorAll('.js-menu-link');
+const cart = document.querySelector('.js-cart-button');
+const cartCloseButton = document.querySelector('.js-cart-close-button');
+const cartOverlay = document.querySelector('.js-cart-overlay');
+const cartDrawer = document.querySelector('.js-cart-drawer');
 const tabsButtons = document.querySelectorAll('.js-products-button');
 const productsGrid = document.querySelector('.js-products-grid');
 const countryLinks = document.querySelectorAll('.js-country-link');
@@ -12,6 +16,9 @@ const initialProducts = products.filter(product => product.country === 'Фран
 
 burgerButton.addEventListener('click', toggleMenu);
 logo.addEventListener('click', checkActiveMenu);
+cart.addEventListener('click', openCartDrawer);
+cartOverlay.addEventListener('click', closeByOverlay);
+cartCloseButton.addEventListener('click', closeCartDrawer);
 headerLinks.forEach(link => link.addEventListener('click', checkActiveMenu));
 tabsButtons.forEach(btn => btn.addEventListener('click', switchCountry));
 countryLinks.forEach(link => link.addEventListener('click', switchCountry));
@@ -68,4 +75,20 @@ function renderCard(product) {
         </div>`;
 
     return card;
+}
+
+function openCartDrawer() {
+    document.body.classList.add('_lock');
+    cartOverlay.classList.add('_active');
+    cartDrawer.classList.add('_active');
+}
+
+function closeCartDrawer() {
+    document.body.classList.remove('_lock');
+    cartOverlay.classList.remove('_active');
+    cartDrawer.classList.remove('_active');
+}
+
+function closeByOverlay(e) {
+    if(e.target.classList.contains('js-cart-overlay')) closeCartDrawer();
 }
