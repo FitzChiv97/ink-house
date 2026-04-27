@@ -1,5 +1,6 @@
 'use strict';
 
+let cartData = [];
 const burgerButton = document.querySelector('.js-burger-button');
 const logo = document.querySelector('.js-logo');
 const menu = document.querySelector('.js-menu');
@@ -64,7 +65,7 @@ function renderProducts(products) {
 
 function renderCard(product) {
     let card = `
-        <div class="products__card card js-card" id="${product.id}">
+        <div class="products__card card js-card" data-id="${product.id}">
             <div class="card__image-container">
                 <img src="${product.image}" alt="${product.title} - ${product.author}" class="card__image js-card-image">
             </div>
@@ -103,21 +104,24 @@ function CartItem(id, title, price, img) {
 }
 
 function addToCart(e) {
-    let btn = e.target.closest('.js-add-to-cart');
+    let btn = e.target.closest('.js-add-to-cart'); // check click on add-to-cart button
 
-    if(btn) {
-        const card = btn.closest('.js-card');
-        const cardId = card.id;
-        const cardTitle = card.querySelector('.js-card-title').innerText;
-        const cardPrice = parseInt(card
-            .querySelector('.js-card-price')
-            .innerText
-            .split(' ')
-            .join('')
-        );
-        const cardImage = card.querySelector('.js-card-image').getAttribute('src');
+    if(!btn) return; // Guard Clause
 
+    // collect clicked card data
+    const card = btn.closest('.js-card'); 
+    const cardId = card.dataset.id;
+    const cardTitle = card.querySelector('.js-card-title').innerText;
+    const cardPrice = parseInt(card.querySelector('.js-card-price').innerText.replace(/\s/g, ''));
+    const cardImage = card.querySelector('.js-card-image').getAttribute('src');
+
+    // add product info to cart 
+    const existingItem = cartData.find(el => el.id === cardId);
+
+    if(existingItem){
+        existingItem.count++;
+    } else {
         const item = new CartItem(cardId, cardTitle, cardPrice, cardImage);
-        console.log(item);
-    };
+        cartData.push(item);
+    }
 }
