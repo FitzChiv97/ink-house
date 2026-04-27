@@ -19,6 +19,7 @@ logo.addEventListener('click', checkActiveMenu);
 cart.addEventListener('click', openCartDrawer);
 cartOverlay.addEventListener('click', closeByOverlay);
 cartCloseButton.addEventListener('click', closeCartDrawer);
+productsGrid.addEventListener('click', addToCart);
 headerLinks.forEach(link => link.addEventListener('click', checkActiveMenu));
 tabsButtons.forEach(btn => btn.addEventListener('click', switchCountry));
 countryLinks.forEach(link => link.addEventListener('click', switchCountry));
@@ -63,15 +64,15 @@ function renderProducts(products) {
 
 function renderCard(product) {
     let card = `
-        <div class="products__card card">
+        <div class="products__card card js-card" id="${product.id}">
             <div class="card__image-container">
-                <img src="${product.image}" alt="${product.title} - ${product.author}" class="card__image">
+                <img src="${product.image}" alt="${product.title} - ${product.author}" class="card__image js-card-image">
             </div>
             <p class="card__author">${product.author}</p>
-            <h3 class="card__name">${product.title}</h3>
+            <h3 class="card__name js-card-title">${product.title}</h3>
             <p class="card__features">${product.features}</p>
-            <span class="card__price">${product.price} руб</span>
-            <button type="button" class="card__button btn">В корзину</button>
+            <span class="card__price js-card-price">${product.price} руб</span>
+            <button type="button" class="card__button btn js-add-to-cart">В корзину</button>
         </div>`;
 
     return card;
@@ -91,4 +92,32 @@ function closeCartDrawer() {
 
 function closeByOverlay(e) {
     if(e.target.classList.contains('js-cart-overlay')) closeCartDrawer();
+}
+
+function CartItem(id, title, price, img) {
+    this.id = id;
+    this.title = title;
+    this.price = price;
+    this.img = img;
+    this.count = 1;
+}
+
+function addToCart(e) {
+    let btn = e.target.closest('.js-add-to-cart');
+
+    if(btn) {
+        const card = btn.closest('.js-card');
+        const cardId = card.id;
+        const cardTitle = card.querySelector('.js-card-title').innerText;
+        const cardPrice = parseInt(card
+            .querySelector('.js-card-price')
+            .innerText
+            .split(' ')
+            .join('')
+        );
+        const cardImage = card.querySelector('.js-card-image').getAttribute('src');
+
+        const item = new CartItem(cardId, cardTitle, cardPrice, cardImage);
+        console.log(item);
+    };
 }
