@@ -66,7 +66,7 @@ function renderProducts(products) {
 function renderCard(product) {
     let card = `
         <div class="products__card card js-card" data-id="${product.id}">
-            <div class="card__image-container">
+            <div class="card__image-block">
                 <img src="${product.image}" alt="${product.title} - ${product.author}" class="card__image js-card-image">
             </div>
             <p class="card__author">${product.author}</p>
