@@ -9,6 +9,7 @@ const cart = document.querySelector('.js-cart-button');
 const cartCloseButton = document.querySelector('.js-cart-close-button');
 const cartOverlay = document.querySelector('.js-cart-overlay');
 const cartDrawer = document.querySelector('.js-cart-drawer');
+const cartList = document.querySelector('.js-cart-drawer-list');
 const tabsButtons = document.querySelectorAll('.js-products-button');
 const productsGrid = document.querySelector('.js-products-grid');
 const countryLinks = document.querySelectorAll('.js-country-link');
@@ -124,4 +125,51 @@ function addToCart(e) {
         const item = new CartItem(cardId, cardTitle, cardPrice, cardImage);
         cartData.push(item);
     }
+
+    renderCartList(cartData);
+}
+
+function renderCartList(cartData) {
+    cartList.innerHTML = cartData.reduce((acc, item) => {
+        return acc += renderCartItem(item); 
+    }, '');
+}
+
+function renderCartItem(item) {
+    let cartItem = `
+        <li class="cart-drawer__item item js-cart-drawer-item" data-id="${item.id}">
+            <div class="item__row">
+                <button class="item__delete-btn">
+                    <svg class="item__delete-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+                        <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+                    </svg>
+                </button>
+                <div class="item__image-block">
+                    <img src="${item.img}" alt="${item.title}" class="item__image">
+                </div>
+                <div class="item__info">
+                    <div class="item__name">${item.title}</div>
+                    <div class="item__price js-item-price">${item.price * item.count} руб</div>
+                </div>
+                <div class="item__qty">
+                    <div class="item__qty-text">Количество:</div>
+                    <div class="item__qty-controls">
+                        <button type="button" class="item__qty-btn">
+                            <svg class="item__qty-icon" xmlns="http://www.w3.org/2000/svg" height="12px" viewBox="0 -960 960 960" width="12px" fill="currentColor">
+                                <path d="M200-440v-80h560v80H200Z"/>
+                            </svg>
+                        </button>
+                        <span class="item__qty-num">${item.count}</span>
+                        <button type="button" class="item__qty-btn">
+                            <svg class="item__qty-icon" xmlns="http://www.w3.org/2000/svg" height="12px" viewBox="0 -960 960 960" width="12px" fill="currentColor">
+                                <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </li>
+    `;
+
+    return cartItem;
 }
