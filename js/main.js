@@ -1,33 +1,48 @@
 'use strict';
 
+// data
 let cartData = [];
+const initialProducts = products.filter(product => product.country === 'Франция');
+
+// navigation
 const burgerButton = document.querySelector('.js-burger-button');
 const logo = document.querySelector('.js-logo');
 const menu = document.querySelector('.js-menu');
 const headerLinks = document.querySelectorAll('.js-menu-link');
+
+// products
+const tabsButtons = document.querySelectorAll('.js-products-button');
+const productsGrid = document.querySelector('.js-products-grid');
+const countryLinks = document.querySelectorAll('.js-country-link');
+
+// cart
 const cart = document.querySelector('.js-cart-button');
 const cartCloseButton = document.querySelector('.js-cart-close-button');
 const cartOverlay = document.querySelector('.js-cart-overlay');
 const cartDrawer = document.querySelector('.js-cart-drawer');
 const cartList = document.querySelector('.js-cart-drawer-list');
-const tabsButtons = document.querySelectorAll('.js-products-button');
-const productsGrid = document.querySelector('.js-products-grid');
-const countryLinks = document.querySelectorAll('.js-country-link');
 
-const initialProducts = products.filter(product => product.country === 'Франция');
 
+// navigation events
 burgerButton.addEventListener('click', toggleMenu);
 logo.addEventListener('click', checkActiveMenu);
-cart.addEventListener('click', openCartDrawer);
-cartOverlay.addEventListener('click', closeByOverlay);
-cartCloseButton.addEventListener('click', closeCartDrawer);
-productsGrid.addEventListener('click', addToCart);
 headerLinks.forEach(link => link.addEventListener('click', checkActiveMenu));
+
+// products events
 tabsButtons.forEach(btn => btn.addEventListener('click', switchCountry));
 countryLinks.forEach(link => link.addEventListener('click', switchCountry));
+productsGrid.addEventListener('click', addToCart);
+
+// cart events
+cart.addEventListener('click', openCartDrawer);
+cartCloseButton.addEventListener('click', closeCartDrawer);
+cartOverlay.addEventListener('click', closeByOverlay);
+
 
 renderProducts(initialProducts); // initial call to avoid empty products section
 
+
+// navigation functions
 function toggleMenu() {
     menu.classList.toggle('_active');
     document.body.classList.toggle('_lock');
@@ -42,30 +57,34 @@ function checkActiveMenu() {
     if(menu.classList.contains('_active')) closeMenu();
 }
 
-function switchCountry(e) {
-    const selectedCountry = e.target.dataset.country;
 
-    // make selected country tab-button active
+// products logic functions
+function switchCountry(e) {
+    // Guard Clause
+    const selectedCountry = e.target.dataset.country;
+    if(!selectedCountry) return; 
+
+    // update active country tab state
     tabsButtons.forEach(btn => btn.classList.remove('_active'));
     const activeButton = [...tabsButtons].find(btn => btn.dataset.country === selectedCountry);
-    activeButton.classList.add('_active');
 
-    // render products by selected country
+    // use optional chaining in case tab button is not found (e.g. click from footer)
+    activeButton?.classList.add('_active');
+
+    // filter and render selected category
     const filteredProducts = products.filter(product => product.country === selectedCountry);
 
     renderProducts(filteredProducts);
 }
 
-function renderProducts(products) {
-    productsGrid.innerHTML = '';
 
-    products.forEach(product => {
-        productsGrid.innerHTML += renderCard(product);
-    })
+// products rendering funcitons
+function renderProducts(products) {
+    productsGrid.innerHTML = products.reduce((acc, product) => acc + renderCard(product), '');
 }
 
 function renderCard(product) {
-    let card = `
+    return `
         <div class="products__card card js-card" data-id="${product.id}">
             <div class="card__image-block">
                 <img src="${product.image}" alt="${product.title} - ${product.author}" class="card__image js-card-image">
@@ -76,10 +95,10 @@ function renderCard(product) {
             <span class="card__price js-card-price">${product.price} руб</span>
             <button type="button" class="card__button btn js-add-to-cart">В корзину</button>
         </div>`;
-
-    return card;
 }
 
+
+// cart logic functions
 function openCartDrawer() {
     document.body.classList.add('_lock');
     cartOverlay.classList.add('_active');
@@ -96,47 +115,39 @@ function closeByOverlay(e) {
     if(e.target.classList.contains('js-cart-overlay')) closeCartDrawer();
 }
 
-function CartItem(id, title, price, img) {
-    this.id = id;
-    this.title = title;
-    this.price = price;
-    this.img = img;
-    this.count = 1;
-}
-
 function addToCart(e) {
-    let btn = e.target.closest('.js-add-to-cart'); // check click on add-to-cart button
+    // Guard Clause
+    const btn = e.target.closest('.js-add-to-cart');
+    if(!btn) return;
 
-    if(!btn) return; // Guard Clause
+    // collect product data
+    const card = btn.closest('.js-card');
+    const productData = getProductData(card);
 
-    // collect clicked card data
-    const card = btn.closest('.js-card'); 
-    const cardId = card.dataset.id;
-    const cardTitle = card.querySelector('.js-card-title').innerText;
-    const cardPrice = parseInt(card.querySelector('.js-card-price').innerText.replace(/\s/g, ''));
-    const cardImage = card.querySelector('.js-card-image').getAttribute('src');
-
-    // add product info to cart 
-    const existingItem = cartData.find(el => el.id === cardId);
-
-    if(existingItem){
-        existingItem.count++;
-    } else {
-        const item = new CartItem(cardId, cardTitle, cardPrice, cardImage);
-        cartData.push(item);
-    }
+    // add product data to cart 
+    const existingItem = cartData.find(el => el.id === productData.id);
+    existingItem ? existingItem.count++: cartData.push({...productData, count: 1});
 
     renderCartList(cartData);
 }
 
+function getProductData(card) {
+    return {
+        id: card.dataset.id,
+        title: card.querySelector('.js-card-title').innerText,
+        price: parseInt(card.querySelector('.js-card-price').innerText.replace(/\s/g, '')),
+        img: card.querySelector('.js-card-image').src,
+    };
+}
+
+
+// cart rendering functions
 function renderCartList(cartData) {
-    cartList.innerHTML = cartData.reduce((acc, item) => {
-        return acc += renderCartItem(item); 
-    }, '');
+    cartList.innerHTML = cartData.reduce((acc, item) => acc + renderCartItem(item), '');
 }
 
 function renderCartItem(item) {
-    let cartItem = `
+    return `
         <li class="cart-drawer__item item js-cart-drawer-item" data-id="${item.id}">
             <div class="item__row">
                 <button class="item__delete-btn">
@@ -149,7 +160,7 @@ function renderCartItem(item) {
                 </div>
                 <div class="item__info">
                     <div class="item__name">${item.title}</div>
-                    <div class="item__price js-item-price">${item.price * item.count} руб</div>
+                    <div class="item__price js-item-price">${(item.price * item.count).toLocaleString('ru-RU')} руб</div>
                 </div>
                 <div class="item__qty">
                     <div class="item__qty-text">Количество:</div>
@@ -170,6 +181,4 @@ function renderCartItem(item) {
             </div>
         </li>
     `;
-
-    return cartItem;
 }
