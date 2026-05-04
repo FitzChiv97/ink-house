@@ -21,6 +21,7 @@ const cartCloseButton = document.querySelector('.js-cart-close-button');
 const cartOverlay = document.querySelector('.js-cart-overlay');
 const cartDrawer = document.querySelector('.js-cart-drawer');
 const cartList = document.querySelector('.js-cart-drawer-list');
+const cartTotal = document.querySelector('.js-order-total');
 
 
 // navigation events
@@ -39,7 +40,9 @@ cartCloseButton.addEventListener('click', closeCartDrawer);
 cartOverlay.addEventListener('click', closeByOverlay);
 
 
-renderProducts(initialProducts); // initial call to avoid empty products section
+// initial calls
+renderProducts(initialProducts); // avoid empty products section
+updateCartTotal();
 
 
 // navigation functions
@@ -140,10 +143,15 @@ function getProductData(card) {
     };
 }
 
+function updateCartTotal() {
+    cartTotal.innerHTML = cartData.reduce((acc, item) => acc + (item.price * item.count), 0).toLocaleString('ru-RU') + ' руб';
+}
+
 
 // cart rendering functions
 function renderCartList(cartData) {
     cartList.innerHTML = cartData.reduce((acc, item) => acc + renderCartItem(item), '');
+    updateCartTotal();
 }
 
 function renderCartItem(item) {
@@ -160,7 +168,7 @@ function renderCartItem(item) {
                 </div>
                 <div class="item__info">
                     <div class="item__name">${item.title}</div>
-                    <div class="item__price js-item-price">${(item.price * item.count).toLocaleString('ru-RU')} руб</div>
+                    <div class="item__price">${(item.price * item.count).toLocaleString('ru-RU')} руб</div>
                 </div>
                 <div class="item__qty">
                     <div class="item__qty-text">Количество:</div>
