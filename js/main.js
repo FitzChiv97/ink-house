@@ -17,6 +17,7 @@ const countryLinks = document.querySelectorAll('.js-country-link');
 
 // cart
 const cart = document.querySelector('.js-cart-button');
+const cartItemsCount = document.querySelector('.js-cart-count');
 const cartCloseButton = document.querySelector('.js-cart-close-button');
 const cartOverlay = document.querySelector('.js-cart-overlay');
 const cartDrawer = document.querySelector('.js-cart-drawer');
@@ -147,11 +148,27 @@ function updateCartTotal() {
     cartTotal.innerHTML = cartData.reduce((acc, item) => acc + (item.price * item.count), 0).toLocaleString('ru-RU') + ' руб';
 }
 
+function updateCartItemsCount () {
+    const count = cartData.reduce((sum, item) => sum + item.count, 0);
+
+    if(count) {
+        cartItemsCount.classList.add('_active');
+        cartItemsCount.textContent = count;
+    } else {
+        cartItemsCount.classList.remove('_active');
+    }
+}
+
+function updateCartState() {
+    updateCartItemsCount();
+    updateCartTotal();
+}
+
 
 // cart rendering functions
 function renderCartList(cartData) {
     cartList.innerHTML = cartData.reduce((acc, item) => acc + renderCartItem(item), '');
-    updateCartTotal();
+    updateCartState();
 }
 
 function renderCartItem(item) {
