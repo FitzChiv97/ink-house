@@ -39,11 +39,12 @@ productsGrid.addEventListener('click', addToCart);
 cart.addEventListener('click', openCartDrawer);
 cartCloseButton.addEventListener('click', closeCartDrawer);
 cartOverlay.addEventListener('click', closeByOverlay);
+cartList.addEventListener('click', deleteCartItem);
 
 
 // initial calls
 renderProducts(initialProducts); // avoid empty products section
-updateCartTotal();
+updateCartState();
 
 
 // navigation functions
@@ -144,8 +145,14 @@ function getProductData(card) {
     };
 }
 
-function updateCartTotal() {
-    cartTotal.innerHTML = cartData.reduce((acc, item) => acc + (item.price * item.count), 0).toLocaleString('ru-RU') + ' руб';
+function deleteCartItem(e) {
+    const btn = e.target.closest('.js-delete-btn');
+    if(!btn) return;
+
+    const deleteId = btn.closest('.js-cart-drawer-item').dataset.id;
+    cartData = cartData.filter(el => el.id !== deleteId);
+
+    renderCartList(cartData);
 }
 
 function updateCartItemsCount () {
@@ -157,6 +164,10 @@ function updateCartItemsCount () {
     } else {
         cartItemsCount.classList.remove('_active');
     }
+}
+
+function updateCartTotal() {
+    cartTotal.innerHTML = cartData.reduce((acc, item) => acc + (item.price * item.count), 0).toLocaleString('ru-RU') + ' руб';
 }
 
 function updateCartState() {
@@ -175,7 +186,7 @@ function renderCartItem(item) {
     return `
         <li class="cart-drawer__item item js-cart-drawer-item" data-id="${item.id}">
             <div class="item__row">
-                <button class="item__delete-btn">
+                <button class="item__delete-btn js-delete-btn">
                     <svg class="item__delete-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
                         <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
                     </svg>
