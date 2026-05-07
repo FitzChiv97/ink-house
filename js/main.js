@@ -1,7 +1,7 @@
 'use strict';
 
 // data
-let cartData = [];
+let cartData = JSON.parse(localStorage.getItem('cart')) || [];
 const initialProducts = products.filter(product => product.country === 'Франция');
 
 // navigation
@@ -44,7 +44,7 @@ cartList.addEventListener('click', handleCartListClick);
 
 // initial calls
 renderProducts(initialProducts); // avoid empty products section
-updateCartState();
+renderCartList(cartData);
 
 
 // navigation functions
@@ -163,6 +163,8 @@ function updateCartTotal() {
 function updateCartState() {
     updateCartItemCount();
     updateCartTotal();
+
+    localStorage.setItem('cart', JSON.stringify(cartData));
 }
 
 
