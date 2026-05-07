@@ -39,7 +39,7 @@ productsGrid.addEventListener('click', addToCart);
 cart.addEventListener('click', openCartDrawer);
 cartCloseButton.addEventListener('click', closeCartDrawer);
 cartOverlay.addEventListener('click', closeByOverlay);
-cartList.addEventListener('click', deleteCartItem);
+cartList.addEventListener('click', handleCartListClick);
 
 
 // initial calls
@@ -145,17 +145,7 @@ function getProductData(card) {
     };
 }
 
-function deleteCartItem(e) {
-    const btn = e.target.closest('.js-delete-btn');
-    if(!btn) return;
-
-    const deleteId = btn.closest('.js-cart-drawer-item').dataset.id;
-    cartData = cartData.filter(el => el.id !== deleteId);
-
-    renderCartList(cartData);
-}
-
-function updateCartItemsCount () {
+function updateCartItemCount() {
     const count = cartData.reduce((sum, item) => sum + item.count, 0);
 
     if(count) {
@@ -171,8 +161,43 @@ function updateCartTotal() {
 }
 
 function updateCartState() {
-    updateCartItemsCount();
+    updateCartItemCount();
     updateCartTotal();
+}
+
+
+// cart list logic functions
+function deleteCartItem(e) {
+    const btn = e.target.closest('.js-delete-btn');
+    if(!btn) return;
+
+    const deleteId = btn.closest('.js-cart-drawer-item').dataset.id;
+    cartData = cartData.filter(el => el.id !== deleteId);
+
+    renderCartList(cartData);
+}
+
+function changeCartItemQty(e) {
+    const btn = e.target.closest('.js-cart-minus-btn, .js-cart-plus-btn');
+    if(!btn) return;
+
+    // find item by id
+    const id = btn.closest('.js-cart-drawer-item').dataset.id; 
+    const item = cartData.find(item => item.id === id);
+    if(!item) return;
+    
+    // change item qty
+    btn.classList.contains('js-cart-minus-btn') ? item.count--: item.count++;
+
+    // or delete item if qty is 0
+    if(item.count < 1) cartData = cartData.filter(item => item.id !== id);
+
+    renderCartList(cartData);
+}
+
+function handleCartListClick(e) {
+    deleteCartItem(e);
+    changeCartItemQty(e);
 }
 
 
@@ -201,13 +226,13 @@ function renderCartItem(item) {
                 <div class="item__qty">
                     <div class="item__qty-text">Количество:</div>
                     <div class="item__qty-controls">
-                        <button type="button" class="item__qty-btn">
+                        <button type="button" class="item__qty-btn js-cart-minus-btn">
                             <svg class="item__qty-icon" xmlns="http://www.w3.org/2000/svg" height="12px" viewBox="0 -960 960 960" width="12px" fill="currentColor">
                                 <path d="M200-440v-80h560v80H200Z"/>
                             </svg>
                         </button>
                         <span class="item__qty-num">${item.count}</span>
-                        <button type="button" class="item__qty-btn">
+                        <button type="button" class="item__qty-btn js-cart-plus-btn">
                             <svg class="item__qty-icon" xmlns="http://www.w3.org/2000/svg" height="12px" viewBox="0 -960 960 960" width="12px" fill="currentColor">
                                 <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
                             </svg>
