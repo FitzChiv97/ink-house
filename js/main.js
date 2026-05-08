@@ -22,7 +22,9 @@ const cartCloseButton = document.querySelector('.js-cart-close-button');
 const cartOverlay = document.querySelector('.js-cart-overlay');
 const cartDrawer = document.querySelector('.js-cart-drawer');
 const cartList = document.querySelector('.js-cart-drawer-list');
+const cartOrder = document.querySelector('.js-cart-drawer-order');
 const cartTotal = document.querySelector('.js-order-total');
+const cartEmpty = document.querySelector('.js-cart-empty');
 
 
 // navigation events
@@ -205,7 +207,18 @@ function handleCartListClick(e) {
 
 // cart rendering functions
 function renderCartList(cartData) {
-    cartList.innerHTML = cartData.reduce((acc, item) => acc + renderCartItem(item), '');
+    if(cartData.length === 0) {
+        cartList.classList.add('_hidden');
+        cartOrder.classList.add('_hidden');
+        cartEmpty.classList.remove('_hidden');
+    } else {
+        cartList.classList.remove('_hidden');
+        cartOrder.classList.remove('_hidden');
+        cartEmpty.classList.add('_hidden');
+
+        cartList.innerHTML = cartData.reduce((acc, item) => acc + renderCartItem(item), '');
+    }
+
     updateCartState();
 }
 
